@@ -85,7 +85,7 @@ PDIB DibOpenFile(LPSTR szFile)
        free(temp);
     }
 
-    close(fh);
+    _close(fh);
 
     return pdib;
 }
