@@ -29,7 +29,7 @@ BOOL CALLBACK PrintWindowProc(HWND hwnd, LPARAM lParam)
    return TRUE;
 }
 /************************************************************************/
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
    int num;
    HWINSTA hwinsta;

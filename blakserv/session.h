@@ -12,7 +12,7 @@
 
 #ifndef _SESSION_H
 #define _SESSION_H
-
+#include <winsock2.h>
 /* for async.c to add bytes it writes */
 extern int transmitted_bytes; 
 

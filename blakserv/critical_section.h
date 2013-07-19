@@ -9,11 +9,13 @@
  * critical_section.h
  *
  */
-
+#pragma once
+#ifdef BLAK_PLATFORM_LINUX
 #ifndef _CRITICAL_SECTION_H
 #define _CRITICAL_SECTION_H
 
 // Linux version of a Windows CRITICAL_SECTION, using a pthread mutex.
+
 
 #include <pthread.h>
 
@@ -23,5 +25,8 @@ void InitializeCriticalSection(CRITICAL_SECTION *m);
 void EnterCriticalSection(CRITICAL_SECTION *m);
 void LeaveCriticalSection(CRITICAL_SECTION *m);
 void DeleteCriticalSection(CRITICAL_SECTION *m);
+
+
+#endif
 
 #endif

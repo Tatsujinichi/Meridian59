@@ -131,7 +131,7 @@ HDIB FAR CreateDIB(DWORD dwWidth, DWORD dwHeight, WORD wBitCount)
    }
 
    // lock memory and get pointer to it
-   lpbi = (VOID FAR *)GlobalLock(hDIB);
+   lpbi = (LPBITMAPINFOHEADER)(VOID FAR *)GlobalLock(hDIB);
 
    // use our bitmap info structure to fill in first part of
    // our DIB with the BITMAPINFOHEADER
@@ -416,7 +416,7 @@ HPALETTE FAR CreateDIBPalette(HDIB hDIB)
       return NULL;
 
    /* lock DIB memory block and get a pointer to it */
-   lpbi = GlobalLock(hDIB);
+   lpbi = (LPSTR)GlobalLock(hDIB);
 
    /* get pointer to BITMAPINFO (Win 3.0) */
    lpbmi = (LPBITMAPINFO)lpbi;
@@ -554,7 +554,7 @@ HBITMAP FAR DIBToBitmap(HDIB hDIB, HPALETTE hPal)
       return NULL;
 
    /* lock memory block and get a pointer to it */
-   lpDIBHdr = GlobalLock(hDIB);
+   lpDIBHdr = (LPSTR)GlobalLock(hDIB);
 
    /* get a pointer to the DIB bits */
    lpDIBBits = FindDIBBits(lpDIBHdr);
@@ -638,7 +638,7 @@ HDIB FAR BitmapToDIB(HBITMAP hBitmap, HPALETTE hPal)
 
    /* if no palette is specified, use default palette */
    if (hPal == NULL)
-      hPal = GetStockObject(DEFAULT_PALETTE);
+      hPal = (HPALETTE)GetStockObject(DEFAULT_PALETTE);
 
    /* calculate bits per pixel */
    biBits = bm.bmPlanes * bm.bmBitsPixel;
@@ -690,7 +690,7 @@ HDIB FAR BitmapToDIB(HBITMAP hBitmap, HPALETTE hPal)
    }
 
    /* lock memory and get pointer to it */
-   lpbi = (VOID FAR *)GlobalLock(hDIB);
+   lpbi = (LPBITMAPINFOHEADER)(VOID FAR *)GlobalLock(hDIB);
 
    /* use our bitmap info. to fill BITMAPINFOHEADER */
    *lpbi = bi;
@@ -725,7 +725,7 @@ HDIB FAR BitmapToDIB(HBITMAP hBitmap, HPALETTE hPal)
    }
 
    /* lock memory block and get pointer to it */
-   lpbi = (VOID FAR *)GlobalLock(hDIB);
+   lpbi = (LPBITMAPINFOHEADER)(VOID FAR *)GlobalLock(hDIB);
 
    /*  call GetDIBits with a NON-NULL lpBits param, and actualy get the
     *  bits this time
@@ -927,7 +927,7 @@ HANDLE AllocRoomForDIB(BITMAPINFOHEADER bi, HBITMAP hBitmap)
     * then call GetDIBits() with lpBits = NULL to have it fill in the
     * biSizeImage field for us.
     */
-   lpbi  = (VOID FAR *)GlobalLock(hDIB);
+   lpbi  = (LPBITMAPINFOHEADER)(VOID FAR *)GlobalLock(hDIB);
    *lpbi = bi;
 
    hDC   = GetDC(NULL);
@@ -1101,7 +1101,7 @@ HDIB FAR ChangeDIBFormat(HDIB hDIB, WORD wBitCount, DWORD dwCompression)
       return NULL;
 
    /* Get a pointer to the new DIB */
-   lpbi = (VOID FAR *)GlobalLock(hNewDIB);
+   lpbi = (LPBITMAPINFOHEADER)(VOID FAR *)GlobalLock(hNewDIB);
 
    /* Get a DC and select/realize our palette in it */
    hDC  = GetDC(NULL);
@@ -1258,7 +1258,7 @@ HDIB FAR ChangeBitmapFormat(HBITMAP  hBitmap,
       return NULL;
 
    /* Get a pointer to the new DIB */
-   lpbi = (VOID FAR *)GlobalLock(hNewDIB);
+   lpbi = (LPBITMAPINFOHEADER)(VOID FAR *)GlobalLock(hNewDIB);
 
    /* If we have a palette, get a DC and select/realize it */
    if (hPal)

@@ -7,7 +7,7 @@
 
 #include <time.h>
 #include <stdio.h>
-
+#include <cstdio>
 /********************************************************************/
 void wait(long seconds)
 {
@@ -18,9 +18,9 @@ void wait(long seconds)
  * FindMainWindow:  Find and return first top-level window with given 
  *   class and caption, or NULL if none.
  */
-HWND FindMainWindow(char *class, char *caption)
+HWND FindMainWindow(char *className, char *caption)
 {
-   return FindWindow(class, caption);
+   return FindWindow(className, caption);
 }
 /************************************************************************/
 /*
@@ -39,9 +39,9 @@ void PressDialogButton(HWND hDialog, int id)
    SendNotifyMessage(hDialog, WM_COMMAND, MAKELONG(id, 0), (LPARAM) hButton);
 }
 /************************************************************************/
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-   char caption[500], class[500];
+   char caption[500], className[500];
    HWND hMain;
    int id;
 
@@ -60,17 +60,17 @@ main(int argc, char **argv)
       exit(1);
    }
 
-   strcpy(class, argv[1]);
+   strcpy(className, argv[1]);
    strcpy(caption, argv[2]);
    sscanf(argv[3], "%d", &id);
 
-   printf("window class = %s, caption = %s, button id = %d\n", class, caption, id);
+   printf("window class = %s, caption = %s, button id = %d\n", className, caption, id);
 
-   hMain = FindMainWindow(class, caption);
+   hMain = FindMainWindow(className, caption);
 
    if (hMain == NULL)
    {
-      printf("Couldn't find window with class %s, caption %s\n", class, caption);
+      printf("Couldn't find window with class %s, caption %s\n", className, caption);
       exit(1);
    }
 

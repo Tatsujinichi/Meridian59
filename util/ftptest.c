@@ -5,6 +5,8 @@
 #include <fcntl.h>
 #include <sys\stat.h>
 #include "wininet.h"
+#include "io.h"
+#include <cstdio>
 
 #define BUFSIZE 4096
 
@@ -84,7 +86,7 @@ void CALLBACK FtpCallbackFunction(HINTERNET hSession, DWORD context, DWORD statu
    }
 }
 /************************************************************************/
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
    HINTERNET hConnection;
    HINTERNET hSession, hFile;
@@ -182,7 +184,7 @@ main(int argc, char **argv)
    while (1)
    {
       done = FALSE;
-      if (!InternetReadFile(hFile, buf, BUFSIZE, &size))
+      if (!InternetReadFile(hFile, buf, BUFSIZE, (LPDWORD)&size))
       {
 	 if (GetLastError() != ERROR_IO_PENDING)
 	 {

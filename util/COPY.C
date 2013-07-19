@@ -348,7 +348,7 @@ HBITMAP FAR CopyScreenToBitmap(LPRECT lpRect)
    hBitmap = CreateCompatibleBitmap(hScrDC, nWidth, nHeight);
 
    /* select new bitmap into memory DC */
-   hOldBitmap = SelectObject(hMemDC, hBitmap);
+   hOldBitmap = (HBITMAP)SelectObject(hMemDC, hBitmap);
 
    /* bitblt screen DC to memory DC */
    BitBlt(hMemDC, 0, 0, nWidth, nHeight, hScrDC, nX, nY, SRCCOPY);
@@ -356,7 +356,7 @@ HBITMAP FAR CopyScreenToBitmap(LPRECT lpRect)
    /*  select old bitmap back into memory DC and get handle to
     *  bitmap of the screen
     */
-   hBitmap = SelectObject(hMemDC, hOldBitmap);
+   hBitmap = (HBITMAP)SelectObject(hMemDC, hOldBitmap);
 
    /* clean up */
    DeleteDC(hScrDC);
@@ -428,7 +428,7 @@ BOOL FAR PaintDIB(HDC      hDC,
    /* Lock down the DIB, and get a pointer to the beginning of the bit
     *  buffer
     */
-   lpDIBHdr  = GlobalLock(hDIB);
+   lpDIBHdr  = (LPSTR)GlobalLock(hDIB);
    lpDIBBits = FindDIBBits(lpDIBHdr);
 
    /* Select and realize our palette as background */
@@ -556,7 +556,7 @@ BOOL FAR PaintBitmap(HDC      hDC,
    }
 
    /* Select bitmap into the memory DC */
-   hOldBitmap = SelectObject (hMemDC, hDDB);
+   hOldBitmap = (HBITMAP)SelectObject (hMemDC, hDDB);
 
    /* Make sure to use the stretching mode best for color pictures */   
    SetStretchBltMode (hDC, COLORONCOLOR);

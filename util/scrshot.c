@@ -8,7 +8,7 @@
 #include "DIBUTIL.H"
 #include "DIBAPI.H"
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
    RECT r;
    HDIB hdib;

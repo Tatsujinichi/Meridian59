@@ -2,10 +2,10 @@
  */
 
 #include <windows.h>
-
+#include <cstdio>
 #define NUM_SYS_COLORS 25
 
-main()
+int main()
 {
   int i;
 

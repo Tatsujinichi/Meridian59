@@ -25,9 +25,9 @@ void wait(long seconds)
  * FindMainWindow:  Find and return first top-level window with given 
  *   class and caption, or NULL if none.
  */
-HWND FindMainWindow(char *class, char *caption)
+HWND FindMainWindow(char *className, char *caption)
 {
-   return FindWindow(class, caption);
+   return FindWindow(className, caption);
 }
 /************************************************************************/
 /*
@@ -92,7 +92,7 @@ BOOL SendWindowEvents(HWND hwnd)
    return TRUE;
 }
 /************************************************************************/
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
    HWND hMain;
    int i, count;

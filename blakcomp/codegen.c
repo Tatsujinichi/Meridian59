@@ -922,7 +922,7 @@ void codegen(char *kod_fname, char *bof_fname)
    /* If code generation failed, delete partial bof file */
    if (!codegen_ok)
    {
-      if (unlink(bof_fname))
+      if (_unlink(bof_fname))
 	 codegen_error("Couldn't delete file %s", bof_fname);
       else simple_warning("Deleted file %s", bof_fname);
    }

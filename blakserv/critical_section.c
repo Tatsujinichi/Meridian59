@@ -6,7 +6,8 @@
 // the LICENSE file that accompanies it.
 //
 // Meridian is a registered trademark.
-
+#pragma once
+#ifdef BLAK_PLATFORM_LINUX
 #include "critical_section.h"
 
 void InitializeCriticalSection(CRITICAL_SECTION *m)
@@ -28,3 +29,5 @@ void DeleteCriticalSection(CRITICAL_SECTION *m)
 {
    pthread_mutex_destroy(m);
 }
+
+#endif

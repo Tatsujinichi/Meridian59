@@ -11,12 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{386EFD48-A9D2-44F1-A402-043F55839763}</ProjectGuid>
-    <RootNamespace>BBGUN</RootNamespace>
+    <ProjectGuid>{BB739D39-0AAA-4DCE-94C1-33EE3CEF1BDA}</ProjectGuid>
+    <RootNamespace>BLAKCOMP</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -41,8 +41,9 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalIncludeDirectories>C:\DEV\Meridian59\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BLAK_PLATFORM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -62,42 +63,53 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="bbgfile.c">
+    <ClCompile Include="actions.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="bbgun.c">
+    <ClCompile Include="codegen.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="bmparea.c">
+    <ClCompile Include="codeutil.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="dibutil.c">
+    <ClCompile Include="function.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="draw.c">
+    <ClCompile Include="kodbase.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="pal.c">
+    <ClCompile Include="optimize.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="palette.c">
+    <ClCompile Include="resource.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="sort.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="table.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="util.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bbgfile.h" />
-    <ClInclude Include="bbgun.h" />
-    <ClInclude Include="bmparea.h" />
-    <ClInclude Include="dibutil.h" />
-    <ClInclude Include="draw.h" />
-    <ClInclude Include="palette.h" />
+    <ClInclude Include="blakcomp.h" />
+    <ClInclude Include="codegen.h" />
+    <ClInclude Include="optimize.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="sort.h" />
+    <ClInclude Include="table.h" />
+    <ClInclude Include="unistd.h" />
+    <ClInclude Include="util.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="logo.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="bbgun.rc" />
+    <None Include="bison.hairy" />
+    <None Include="bison.simple" />
+    <None Include="blakcomp.l" />
+    <None Include="blakcomp.y" />
+    <None Include="makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
