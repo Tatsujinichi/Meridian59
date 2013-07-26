@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ED062278-8F9A-466F-BABB-03D691B6A9E5}</ProjectGuid>
+    <RootNamespace>CLIENTD3D</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>meridian</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalIncludeDirectories>$(FrameworkSDKDir)\include;C:\DEV\Meridian59\include;E:\DXSDK\samples\Multimedia\DirectPlay\Maze\MazeCommon;E:\DXSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BLAKCLIENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>Comctl32.lib;E:\DXSDK\lib\DxErr8.lib;E:\DXSDK\lib\D3D8.lib;E:\DXSDK\lib\d3dx8.lib;C:\DEV\Meridian59\lib\libpng.lib;C:\DEV\Meridian59\lib\zdll.lib;ws2_32.lib;winmm.lib;..\Debug\maketrig.lib;..\Lib\wrap.lib;..\Debug\RSCLOAD.lib;..\Debug\MD5.lib;..\lib\waveplay.lib;..\debug\crc.lib;..\debug\makepal.lib;..\debug\bbgun.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>client.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="about.c" />
+    <ClCompile Include="animate.c" />
+    <ClCompile Include="annotate.c" />
+    <ClCompile Include="bitmap.c" />
+    <ClCompile Include="boverlay.c" />
+    <ClCompile Include="bspload.c" />
+    <ClCompile Include="buy.c" />
+    <ClCompile Include="cache.c" />
+    <ClCompile Include="client.c" />
+    <ClCompile Include="client3d.c" />
+    <ClCompile Include="color.c" />
+    <ClCompile Include="com.c" />
+    <ClCompile Include="config.c" />
+    <ClCompile Include="cursor.c" />
+    <ClCompile Include="d3dcache.c" />
+    <ClCompile Include="d3ddriver.c" />
+    <ClCompile Include="d3dparticle.c" />
+    <ClCompile Include="d3drender.c" />
+    <ClCompile Include="dialog.c" />
+    <ClCompile Include="dibutil.c" />
+    <ClCompile Include="download.c" />
+    <ClCompile Include="draw.c" />
+    <ClCompile Include="draw3d.c" />
+    <ClCompile Include="drawbmp.c" />
+    <ClCompile Include="drawbsp.c" />
+    <ClCompile Include="editbox.c" />
+    <ClCompile Include="effect.c" />
+    <ClCompile Include="fastasm.c" />
+    <ClCompile Include="fixed.c" />
+    <ClCompile Include="font.c" />
+    <ClCompile Include="game.c" />
+    <ClCompile Include="gameuser.c" />
+    <ClCompile Include="graphctl.c" />
+    <ClCompile Include="graphics.c" />
+    <ClCompile Include="guest.c" />
+    <ClCompile Include="idlist.c" />
+    <ClCompile Include="intrface.c" />
+    <ClCompile Include="key.c" />
+    <ClCompile Include="keyhook.c" />
+    <ClCompile Include="lagbox.c" />
+    <ClCompile Include="list.c" />
+    <ClCompile Include="loadrsc.c" />
+    <ClCompile Include="login.c" />
+    <ClCompile Include="logoff.c" />
+    <ClCompile Include="lookdlg.c" />
+    <ClCompile Include="maindlg.c" />
+    <ClCompile Include="map.c" />
+    <ClCompile Include="mapfile.c" />
+    <ClCompile Include="matrix.c" />
+    <ClCompile Include="memmap.c" />
+    <ClCompile Include="modules.c" />
+    <ClCompile Include="move.c" />
+    <ClCompile Include="moveobj.c" />
+    <ClCompile Include="msgbox.c" />
+    <ClCompile Include="msgfiltr.c" />
+    <ClCompile Include="music.c" />
+    <ClCompile Include="objdraw.c" />
+    <ClCompile Include="object.c" />
+    <ClCompile Include="object3d.c" />
+    <ClCompile Include="offer.c" />
+    <ClCompile Include="overlay.c" />
+    <ClCompile Include="ownerdrw.c" />
+    <ClCompile Include="palette.c" />
+    <ClCompile Include="parse.c" />
+    <ClCompile Include="ping.c" />
+    <ClCompile Include="profane.c" />
+    <ClCompile Include="project.c" />
+    <ClCompile Include="protocol.c" />
+    <ClCompile Include="regexpr.c" />
+    <ClCompile Include="roomanim.c" />
+    <ClCompile Include="rops.c" />
+    <ClCompile Include="say.c" />
+    <ClCompile Include="select.c" />
+    <ClCompile Include="server.c" />
+    <ClCompile Include="sound.c" />
+    <ClCompile Include="srvrstr.c" />
+    <ClCompile Include="startup.c" />
+    <ClCompile Include="statconn.c" />
+    <ClCompile Include="statgame.c" />
+    <ClCompile Include="statoffl.c" />
+    <ClCompile Include="statstrt.c" />
+    <ClCompile Include="statterm.c" />
+    <ClCompile Include="table.c" />
+    <ClCompile Include="textin.c" />
+    <ClCompile Include="toolbar.c" />
+    <ClCompile Include="tooltip.c" />
+    <ClCompile Include="transfer.c" />
+    <ClCompile Include="uselist.c" />
+    <ClCompile Include="util.c" />
+    <ClCompile Include="web.c" />
+    <ClCompile Include="winmenu.c" />
+    <ClCompile Include="winmsg.c" />
+    <ClCompile Include="xform.c" />
+    <ClCompile Include="xlat.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="about.h" />
+    <ClInclude Include="animate.h" />
+    <ClInclude Include="annotate.h" />
+    <ClInclude Include="bitmap.h" />
+    <ClInclude Include="boverlay.h" />
+    <ClInclude Include="bsp.h" />
+    <ClInclude Include="bspload.h" />
+    <ClInclude Include="buy.h" />
+    <ClInclude Include="cache.h" />
+    <ClInclude Include="client.h" />
+    <ClInclude Include="client3d.h" />
+    <ClInclude Include="color.h" />
+    <ClInclude Include="com.h" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="cursor.h" />
+    <ClInclude Include="d3dcache.h" />
+    <ClInclude Include="d3ddriver.h" />
+    <ClInclude Include="d3dparticle.h" />
+    <ClInclude Include="d3drender.h" />
+    <ClInclude Include="d3dtypes.h" />
+    <ClInclude Include="dialog.h" />
+    <ClInclude Include="download.h" />
+    <ClInclude Include="draw.h" />
+    <ClInclude Include="draw3d.h" />
+    <ClInclude Include="drawbmp.h" />
+    <ClInclude Include="drawbsp.h" />
+    <ClInclude Include="drawdefs.h" />
+    <ClInclude Include="editbox.h" />
+    <ClInclude Include="effect.h" />
+    <ClInclude Include="extern.h" />
+    <ClInclude Include="fixed.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="gameuser.h" />
+    <ClInclude Include="graphctl.h" />
+    <ClInclude Include="graphics.h" />
+    <ClInclude Include="guest.h" />
+    <ClInclude Include="hook.h" />
+    <ClInclude Include="idlist.h" />
+    <ClInclude Include="intrface.h" />
+    <ClInclude Include="key.h" />
+    <ClInclude Include="lagbox.h" />
+    <ClInclude Include="list.h" />
+    <ClInclude Include="loadrsc.h" />
+    <ClInclude Include="login.h" />
+    <ClInclude Include="logoff.h" />
+    <ClInclude Include="maindlg.h" />
+    <ClInclude Include="map.h" />
+    <ClInclude Include="mapfile.h" />
+    <ClInclude Include="matrix.h" />
+    <ClInclude Include="memmap.h" />
+    <ClInclude Include="messages.h" />
+    <ClInclude Include="modules.h" />
+    <ClInclude Include="move.h" />
+    <ClInclude Include="moveobj.h" />
+    <ClInclude Include="msgbox.h" />
+    <ClInclude Include="msgfiltr.h" />
+    <ClInclude Include="music.h" />
+    <ClInclude Include="objdraw.h" />
+    <ClInclude Include="object.h" />
+    <ClInclude Include="object3d.h" />
+    <ClInclude Include="offer.h" />
+    <ClInclude Include="overlay.h" />
+    <ClInclude Include="ownerdrw.h" />
+    <ClInclude Include="palette.h" />
+    <ClInclude Include="parse.h" />
+    <ClInclude Include="ping.h" />
+    <ClInclude Include="profane.h" />
+    <ClInclude Include="project.h" />
+    <ClInclude Include="protocol.h" />
+    <ClInclude Include="regexpr.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="room.h" />
+    <ClInclude Include="roomanim.h" />
+    <ClInclude Include="rops.h" />
+    <ClInclude Include="say.h" />
+    <ClInclude Include="select.h" />
+    <ClInclude Include="server.h" />
+    <ClInclude Include="sound.h" />
+    <ClInclude Include="srvrstr.h" />
+    <ClInclude Include="startup.h" />
+    <ClInclude Include="statconn.h" />
+    <ClInclude Include="statgame.h" />
+    <ClInclude Include="statoffl.h" />
+    <ClInclude Include="statstrt.h" />
+    <ClInclude Include="statterm.h" />
+    <ClInclude Include="table.h" />
+    <ClInclude Include="textin.h" />
+    <ClInclude Include="toolbar.h" />
+    <ClInclude Include="tooltip.h" />
+    <ClInclude Include="transfer.h" />
+    <ClInclude Include="uselist.h" />
+    <ClInclude Include="util.h" />
+    <ClInclude Include="web.h" />
+    <ClInclude Include="winmenu.h" />
+    <ClInclude Include="winmsg.h" />
+    <ClInclude Include="winxblak.h" />
+    <ClInclude Include="xform.h" />
+    <ClInclude Include="xlat.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bitmap\annotate.bmp" />
+    <None Include="bitmap\bkgnd.bmp" />
+    <None Include="bitmap\blue.bmp" />
+    <None Include="bitmap\blue.ico" />
+    <None Include="bitmap\clock.ico" />
+    <None Include="bitmap\crosscur.cur" />
+    <None Include="bitmap\download.avi" />
+    <None Include="bitmap\drop.cur" />
+    <None Include="bitmap\form.ico" />
+    <None Include="bitmap\get.cur" />
+    <None Include="bitmap\icon1.ico" />
+    <None Include="bitmap\imglist.bmp" />
+    <None Include="bitmap\incur.cur" />
+    <None Include="bitmap\mailbox.bmp" />
+    <None Include="bitmap\mapbkgnd.bmp" />
+    <None Include="bitmap\offer.ico" />
+    <None Include="bitmap\phone.ico" />
+    <None Include="bitmap\target.cur" />
+    <None Include="bitmap\viewtreat_ll.BMP" />
+    <None Include="bitmap\viewtreat_ll_hilight.BMP" />
+    <None Include="bitmap\viewtreat_lr.BMP" />
+    <None Include="bitmap\viewtreat_lr_hilight.BMP" />
+    <None Include="bitmap\viewtreat_ul.BMP" />
+    <None Include="bitmap\viewtreat_ul_hilight.BMP" />
+    <None Include="bitmap\viewtreat_ur.BMP" />
+    <None Include="bitmap\viewtreat_ur_hilight.BMP" />
+    <None Include="client.def" />
+    <None Include="makefile" />
+    <None Include="meridian.ini" />
+    <None Include="profane.txt" />
+    <None Include="todo" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="client.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

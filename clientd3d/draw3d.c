@@ -539,8 +539,8 @@ void DrawMap( room_type *room, Draw3DParams *params, Bool bMiniMap )
  */
 void SetLightingInfo(int sun_x, int sun_y, BYTE intensity) 
 {
-   sun_vect.x = COS(sun_x) >> (FIX_DECIMAL - LOG_FINENESS);
-   sun_vect.y = SIN(sun_x) >> (FIX_DECIMAL - LOG_FINENESS);
+   sun_vect.x = (long)Cos(sun_x) >> (FIX_DECIMAL - LOG_FINENESS);
+   sun_vect.y = (long)Sin(sun_x) >> (FIX_DECIMAL - LOG_FINENESS);
    sun_vect.z = 0;  // Hey Andrew - You need to fix this!
    
 	shade_amount = intensity * FINENESS / 64;
@@ -676,8 +676,8 @@ int DiscreteLog(int x)
  */
 void FindOffsets(int d, long theta, int *dx, int *dy)
 {
-   *dx = (int) FixToLong(FixMul(LongToFix(d), COS(theta)));
-   *dy = (int) FixToLong(FixMul(LongToFix(d), SIN(theta)));
+   *dx = (int) FixToLong(FixMul(LongToFix(d), (long)Cos(theta)));
+   *dy = (int) FixToLong(FixMul(LongToFix(d), (long)Sin(theta)));
 }
 /************************************************************************/
 /*

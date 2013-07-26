@@ -16,7 +16,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -43,6 +43,7 @@
       <Optimization>Disabled</Optimization>
       <CompileAs>CompileAsCpp</CompileAs>
       <PreprocessorDefinitions>BLAK_PLATFORM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\DEV\Meridian59\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -71,9 +72,6 @@
     <ClCompile Include="bmparea.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="dibutil.c">
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
-    </ClCompile>
     <ClCompile Include="draw.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
@@ -85,6 +83,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="bbgun.rc" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="bbgfile.h" />
     <ClInclude Include="bbgun.h" />
     <ClInclude Include="bmparea.h" />
@@ -92,12 +96,6 @@
     <ClInclude Include="draw.h" />
     <ClInclude Include="palette.h" />
     <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="logo.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="bbgun.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

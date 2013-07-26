@@ -47,7 +47,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;winmm.lib;Comctl32.lib;..\Debug\MD5.lib;..\Debug\CRC.lib;..\Debug\RSCLOAD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\DEV\Meridian59\lib\wrap.lib;ws2_32.lib;winmm.lib;Comctl32.lib;..\Debug\MD5.lib;..\Debug\CRC.lib;..\Debug\RSCLOAD.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>

@@ -94,9 +94,9 @@ Bool MapFileVerifyHeader(int file, Bool file_exists)
    if (file_exists)
    {
       for (i=0; i < 4; i++)
-	 if (read(file, &byte, 1) != 1 || byte != map_magic[i])
+	 if (_read(file, &byte, 1) != 1 || byte != map_magic[i])
 	    return False;
-      if (read(file, &version, 4) != 4 || version > MAPFILE_VERSION)
+      if (_read(file, &version, 4) != 4 || version > MAPFILE_VERSION)
       {
 	 debug(("Bad map file version %d; expecting %d\n", version, MAPFILE_VERSION));
 	 return False;
@@ -105,10 +105,10 @@ Bool MapFileVerifyHeader(int file, Bool file_exists)
    else
    {
       for (i=0; i < 4; i++)
-	 if (write(file, &map_magic[i], 1) != 1)
+	 if (_write(file, &map_magic[i], 1) != 1)
 	    return False;
       version = MAPFILE_VERSION;
-      if (write(file, &version, 4) != 4)
+      if (_write(file, &version, 4) != 4)
 	 return False;
 
       // Write out empty header table

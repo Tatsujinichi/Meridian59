@@ -208,9 +208,9 @@ xlat* FindStandardXlat(UINT uXlatID)
 
 bixlat* FindStandardBiXlat(UINT uBiXlatID)
 {
-	extern bixlat _blend25;
-	extern bixlat _blend50;
-	extern bixlat _blend75;
+	bixlat _blend25; // why were these extern?
+	bixlat _blend50;
+	bixlat _blend75;
 
 	switch (uBiXlatID)
 	{
