@@ -523,8 +523,8 @@ SlopeData *LoadSlopeInfo(file_node *f) {
 	new_slope->texRot = txt_angle;
     
     // convert angle to vector
-    texture_orientation.x = (long)Cos(txt_angle) >> 6;
-    texture_orientation.y = (long)Sin(txt_angle) >> 6;
+    texture_orientation.x = COS(txt_angle) >> 6;
+    texture_orientation.y = SIN(txt_angle) >> 6;
     texture_orientation.z = 0;
 
     // generate other endpoints from plane normal, texture origin, and texture

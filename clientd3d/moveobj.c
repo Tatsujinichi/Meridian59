@@ -234,13 +234,12 @@ Bool ObjectsMove(int dt)
 		{
 			if (!(OF_PLAYER & r->obj.flags))
 			{
-				int floor,ceiling,bounceHeight;
-				double angleBounce;
+				int floor,ceiling,angleBounce,bounceHeight;
 				r->obj.bounceTime += min(dt,40);
 				if (r->obj.bounceTime > TIME_FULL_OBJECT_BOUNCE)
 					r->obj.bounceTime -= TIME_FULL_OBJECT_BOUNCE;
 				angleBounce = NUMDEGREES * r->obj.bounceTime / TIME_FULL_OBJECT_BOUNCE;
-				bounceHeight = FIXED_TO_INT(fpMul(OBJECT_BOUNCE_HEIGHT, sin(angleBounce)));
+				bounceHeight = FIXED_TO_INT(fpMul(OBJECT_BOUNCE_HEIGHT, SIN(angleBounce)));
 				if (GetPointHeights(r->motion.x,r->motion.y,&floor,&ceiling))
 				{
 					//int midPoint = floor + ((ceiling-floor)>>1);

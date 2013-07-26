@@ -14,7 +14,7 @@
  *
  * We sometimes need to know when an object is done being drawn (for example, to draw something
  * over the object).  To do this, we have a field "ncones" in the object that counts the number
- * of cones in which the object is drawn.  However, Since an object might be split among different
+ * of cones in which the object is drawn.  However, since an object might be split among different
  * leaf nodes and thus drawn at different times, we keep a pointer "ncones_ptr" to the "ncones"
  * field for one particular cone for the object.  Whenever we draw a cone of the object, we
  * go through the "ncones" pointer to decrement the overall count for the object.  When this
@@ -641,13 +641,13 @@ static void AddObjects(room_type *room)
  * because roundoff errors will creep in.  Use the same top and bottom edge
  * coefficients with different leftedge/rightedge values.
  *
- * Given a column h, the open rows can be computed uSing the equations:
+ * Given a column h, the open rows can be computed using the equations:
  *   vmin = DIVUP(top_b * h + top_d, top_a)
  *   vmax = DIVDOWN(bot_b * h + bot_d, bot_a)
  * note the rounding.  Also note that *_a is always non-zero.
  *
  * Given a row v, the fist pixel in that row which is in the viewcone can
- * be computed uSing the equations (top only):
+ * be computed using the equations (top only):
  *       / (top_a * v - top_d) / top_b                      top_b > 0
  *   h = | (top_a * v - top_d + top_b + 1) / top_b          top_b < 0
  *       \ undefined                                        top_b = 0
@@ -2725,8 +2725,8 @@ void MinimapUpdate(Draw3DParams *params, BSPnode *tree)
 
 	// find equations that bound viewing frustum
 	// keep 10 = FIX_DECIMAL-6 bits of accuracy
-	center_a = Cos(viewer_angle) >> 6;
-	center_b = Sin(viewer_angle) >> 6;
+	center_a = COS(viewer_angle) >> 6;
+	center_b = SIN(viewer_angle) >> 6;
 
 	left_a = -center_b + ((center_a * screen_width2) >> LOG_VIEWER_DISTANCE);
 	left_b =  center_a + ((center_b * screen_width2) >> LOG_VIEWER_DISTANCE);
@@ -2917,7 +2917,7 @@ void doDrawWall(DrawWallStruct *wall, ViewCone *c)
 
    //REVIEW: Currently, if we have *any* transparent parts, we're
    //        drawing the background to the whole area, and
-   //        uSing the slower transparent drawing support for upper, normal *and* lower.
+   //        using the slower transparent drawing support for upper, normal *and* lower.
 
    no_vtile = False;
    switch (wall->wall_type)
@@ -3268,7 +3268,7 @@ END_WHILE_SCREEN_PTR_GT_END_SCREEN_PTR:
 
 /********************************************************************************/
 /*  biLerp - bi-linear interpolation
- *    performs inner loop of slope texture mapping uSing a modified Bresenhams
+ *    performs inner loop of slope texture mapping using a modified Bresenhams
  *    algorithm for efficiency. Loosly derived from paul Heckbert's line drawing
  *    code in Graphics Gems.
  *
@@ -3330,7 +3330,7 @@ void biLerp(FixedPoint u_1, FixedPoint u_2, FixedPoint v_1, FixedPoint v_2,
    //  (u2-u1) >= count && (v2-v1) < count
    //  (u2-u1) < count && (v2-v1) >= count
    //  (u2-u1) >= count && (v2-v1) >= count
-   // Also, Since the u & v values here are actually fixed point numbers representing
+   // Also, since the u & v values here are actually fixed point numbers representing
    //  rational values rather than integers, the initialization of the discriminators is 
    //  different from the usual case in order to gain higher precision. 
    // For a good discussion of the midpoint algorith, check Folley, Van Dam, for the derivation.
@@ -3656,7 +3656,7 @@ static void doDrawSloped(ViewCone *c, BSPleaf *leaf, BYTE floor) {
 	    palette = GetLightPalette(light1, leaf->sector->light, shade,0);
 
 	    // When the change in u & v over the span are relatively small, call
-	    //  biLerp to do the linear interpolation inner loop uSing a modified
+	    //  biLerp to do the linear interpolation inner loop using a modified
 	    //  bresenhams algorithm
 	    // When the change in u & v are large with respect to count, it is cheaper 
 	    //  to just do the divide because DDA will go into large tight loop
@@ -4339,8 +4339,8 @@ void DrawBSP(room_type *room, Draw3DParams *params, long width, Bool draw)
   
    /* find equations that bound viewing frustum */
    /* keep 10 = FIX_DECIMAL-6 bits of accuracy */
-   center_a = (long)Cos(viewer_angle) >> 6;
-   center_b = (long)Sin(viewer_angle) >> 6;
+   center_a = COS(viewer_angle) >> 6;
+   center_b = SIN(viewer_angle) >> 6;
 
    left_a = -center_b + ((center_a * screen_width2) >> LOG_VIEWER_DISTANCE);
    left_b =  center_a + ((center_b * screen_width2) >> LOG_VIEWER_DISTANCE);

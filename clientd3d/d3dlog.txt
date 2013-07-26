@@ -1,8 +1,0 @@
-Video Hardware Detected
-Driver:  nvd3dum.dll
-Description:  NVIDIA GeForce GTX 580
-Product:  9
-Version:  18
-Subversion:  13
-Build:  2049
-GUID:  d7b71e3e, 53c0, 11cf, Ó]ÂÄ5

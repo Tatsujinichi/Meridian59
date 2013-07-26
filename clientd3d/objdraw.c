@@ -102,9 +102,9 @@ void DrawObjectInvisible(ObjectRowData *d)
 /************************************************************************/
 void DrawObjectTranslucent(ObjectRowData *d)
 {
-	bixlat _blend25; // why were these extern?
-	bixlat _blend50;
-	bixlat _blend75;
+	extern bixlat _blend25;
+	extern bixlat _blend50;
+	extern bixlat _blend75;
 
 	bixlat* pBiXlat = &_blend75;
 	BYTE index;

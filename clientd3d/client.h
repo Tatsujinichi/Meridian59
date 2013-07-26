@@ -75,7 +75,6 @@ extern void ClearMessageQueue(void);
 
 extern Bool is_foreground;   // True when program is in the foreground
 
-
 /* This list of include files is good for precompiled headers */
 /* The __cplusplus block and M59EXPORT symbol enable mixed C and C++ modules and client */
 
@@ -86,7 +85,7 @@ extern "C" {
 // Use this #define to enable Miles Sound System version.  If not defined,
 // music is played through the default MIDI player, and sound goes through the
 // ancient wavemix DLL.
-//#define M59_MSS
+#define M59_MSS
 
 
 #ifdef M59_MSS
