@@ -192,7 +192,7 @@ Bool AnimateObject(object_node *obj, int dt)
       if (obj->bounceTime > TIME_FLASH)
 	 obj->bounceTime -= TIME_FLASH;
       angleFlash = NUMDEGREES * obj->bounceTime / TIME_FLASH;
-      obj->lightAdjust = FIXED_TO_INT(fpMul(FLASH_LEVEL, SIN(angleFlash)));
+      obj->lightAdjust = FIXED_TO_INT(fpMul(FLASH_LEVEL, (long)Sin(angleFlash)));
       need_redraw = TRUE;
    }
 
